@@ -1,0 +1,12 @@
+<div class="blog-detail">
+    <h1 class="blog-title">{{ blog?.title }}</h1>
+    <p class="blog-category">Kategori: {{ blog?.category }}</p>
+    <div class="blog-content">
+      <p>{{ blog?.content }}</p>
+    </div>
+    <div class="blog-tags">
+      <span *ngFor="let tag of blog?.tags" class="tag">#{{ tag }}</span>
+    </div>
+    <a routerLink="/" class="back-button">← Ana Sayfaya Dön</a>
+  </div>
+  

@@ -1,0 +1,12 @@
+<div class="blog-list">
+    <div *ngFor="let blog of blogs" class="blog-item">
+      <h2 class="blog-title">{{ blog.title }}</h2>
+      <p class="blog-category">Kategori: {{ blog.category }}</p>
+      <p class="blog-content">{{ blog.content | slice:0:150 }}...</p>
+      <div class="blog-tags">
+        <span *ngFor="let tag of blog.tags" class="tag">#{{ tag }}</span>
+      </div>
+      <a [routerLink]="['/blog', blog.id]" class="read-more">Devamını oku</a>
+    </div>
+  </div>
+  
