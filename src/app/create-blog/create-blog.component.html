@@ -6,33 +6,33 @@
                     <h3 class="mb-0">Create New Blog Post</h3>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form #form="ngForm" (ngSubmit)="createBlog(form)">
                         <!-- Title -->
                         <div class="mb-3">
                             <label for="blogTitle" class="form-label">Blog Title</label>
-                            <input type="text" class="form-control" id="blogTitle" placeholder="Enter your blog title">
+                            <input [(ngModel)] = "model.title" type="text" class="form-control" name="blogTitle" id="blogTitle" placeholder="Enter your blog title">
                         </div>
 
                         <!-- Category -->
                         <div class="mb-3">
                             <label for="blogCategory" class="form-label">Category</label>
-                            <input type="text" class="form-control" id="blogCategory" placeholder="Enter your blog category">
+                            <input [(ngModel)] = "model.category" type="text" class="form-control" name="blogCategory" id="blogCategory" placeholder="Enter your blog category">
                         </div>
 
 
                         <!-- Blog Content -->
                         <div class="mb-3">
                             <label for="blogContent" class="form-label">Blog Content</label>
-                            <textarea class="form-control" id="blogContent" rows="10"
+                            <textarea [(ngModel)] = "model.content" class="form-control" name="blogContent" id="blogContent" rows="10"
                                 placeholder="Write your blog content here..."></textarea>
                         </div>
 
                         <!-- Tags -->
                         <div class="mb-3">
                             <label for="blogTags" class="form-label">Tags</label>
-                            <input type="text" class="form-control" id="blogTags"
+                            <input [(ngModel)] = "model.tags" type="text" class="form-control" name="blogTags" id="blogTags"
                                 placeholder="Enter tags separated by commas">
-                        </div>
+                        </div> 
 
                         <!-- Submit Button -->
                         <div class="d-grid gap-2">

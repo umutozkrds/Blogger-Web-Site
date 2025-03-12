@@ -11,14 +11,14 @@ import { ActivatedRoute } from '@angular/router';
 export class BlogDetailComponent implements OnInit{
   blogs: Blog[] = [
     {
-      id: 1,
+      id: "u111",
       title: 'Angular ile Blog Uygulaması',
       category: 'Web Geliştirme',
       content: 'Angular kullanarak modern ve ölçeklenebilir bir blog uygulaması nasıl geliştirilir? ',
       tags: ['Angular', 'TypeScript', 'Web']
     },
     {
-      id: 2,
+      id: "u1112",
       title: 'Veri Bilimi ve Python',
       category: 'Makine Öğrenmesi',
       content: 'Python ve veri bilimi ile büyük veri analizleri nasıl yapılır?',
@@ -37,7 +37,7 @@ export class BlogDetailComponent implements OnInit{
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id'); // URL'den gelen id'yi al
     if (id) {
-      this.blog = this.blogs.find(b => b.id === +id); // ID ile eşleşen blogu bul
+      this.blog = this.blogs.find(b => b.id === id); // ID ile eşleşen blogu bul
     }
   }
 }
