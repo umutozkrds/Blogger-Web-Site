@@ -1,0 +1,54 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h3 class="mb-0">Create New Blog Post</h3>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <!-- Title -->
+                        <div class="mb-3">
+                            <label for="blogTitle" class="form-label">Blog Title</label>
+                            <input type="text" class="form-control" id="blogTitle" placeholder="Enter your blog title">
+                        </div>
+
+                        <!-- Category -->
+                        <div class="mb-3">
+                            <label for="blogCategory" class="form-label">Category</label>
+                            <select class="form-select" id="blogCategory">
+                                <option selected>Select a category</option>
+                                <option value="technology">Technology</option>
+                                <option value="lifestyle">Lifestyle</option>
+                                <option value="travel">Travel</option>
+                                <option value="food">Food</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+
+                        <!-- Blog Content -->
+                        <div class="mb-3">
+                            <label for="blogContent" class="form-label">Blog Content</label>
+                            <textarea class="form-control" id="blogContent" rows="10"
+                                placeholder="Write your blog content here..."></textarea>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="mb-3">
+                            <label for="blogTags" class="form-label">Tags</label>
+                            <input type="text" class="form-control" id="blogTags"
+                                placeholder="Enter tags separated by commas">
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Publish Blog Post</button>
+                            <button type="button" class="btn btn-secondary">Save as Draft</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
