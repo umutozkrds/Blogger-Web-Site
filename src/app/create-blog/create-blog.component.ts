@@ -34,7 +34,7 @@ export class CreateBlogComponent implements OnInit{
       category: this.model.category,
       content: this.model.content,
       tags: this.model.tags.split(',') 
-    };
+    }; 
 
     this.blogService.createBlog(blog).subscribe({
       next: (response) => {
