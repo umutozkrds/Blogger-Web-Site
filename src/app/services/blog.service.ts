@@ -25,8 +25,11 @@ export class BlogService {
 
                 return blogs
             }),
-            delay(1000)
         );
+    }
+
+    getBlogById(id: string): Observable<Blog> {
+        return this.http.get<Blog>(this.url + "blogs/" + id + ".json")
     }
 
     createBlog(blog: Blog) : Observable<Blog> {

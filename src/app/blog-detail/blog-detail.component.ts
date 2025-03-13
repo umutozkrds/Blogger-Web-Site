@@ -1,43 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { Blog } from '../models/blog.model';
 import { ActivatedRoute } from '@angular/router';
+import { BlogService } from '../services/blog.service';
 
 @Component({
   selector: 'app-blog-detail',
   standalone: false,
   templateUrl: './blog-detail.component.html',
-  styleUrl: './blog-detail.component.css'
+  styleUrl: './blog-detail.component.css',
+  providers : [BlogService]
 })
 export class BlogDetailComponent implements OnInit{
-  blogs: Blog[] = [
-    {
-      id: "u111",
-      title: 'Angular ile Blog Uygulaması',
-      category: 'Web Geliştirme',
-      content: 'Angular kullanarak modern ve ölçeklenebilir bir blog uygulaması nasıl geliştirilir? ',
-      tags: ['Angular', 'TypeScript', 'Web']
-    },
-    {
-      id: "u1112",
-      title: 'Veri Bilimi ve Python',
-      category: 'Makine Öğrenmesi',
-      content: 'Python ve veri bilimi ile büyük veri analizleri nasıl yapılır?',
-      tags: ['Python', 'Data Science', 'Machine Learning']
-    }
-  ];
-  blog : any;
+  
+  blog : Blog | undefined;
 
   constructor(
-    private route : ActivatedRoute
+    private route: ActivatedRoute,
+    private blogService: BlogService
   ) {
     
   }
 
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id'); // URL'den gelen id'yi al
-    if (id) {
-      this.blog = this.blogs.find(b => b.id === id); // ID ile eşleşen blogu bul
-    }
+    this.route.params.subscribe(params => {
+      const id = params["id"];
+      this.blogService.getBlogById(id).subscribe(result => {
+        this.blog = result;
+      })
+    })
   }
 }
