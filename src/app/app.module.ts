@@ -9,7 +9,6 @@ import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,6 @@ import { AuthComponent } from './auth/auth.component';
     CreateBlogComponent,
     BlogListComponent,
     BlogDetailComponent,
-    AuthComponent
   ],
   imports: [
     BrowserModule,
