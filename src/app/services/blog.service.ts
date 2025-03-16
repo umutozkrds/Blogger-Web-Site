@@ -1,13 +1,15 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Blog } from "../models/blog.model";
-import { delay, map, Observable } from "rxjs";
+import { delay, exhaustMap, map, Observable, take, tap } from "rxjs";
+import { AuthService } from "./auth.service";
 
 @Injectable()
 export class BlogService {
 
     constructor(
-        private http: HttpClient
+        private http: HttpClient,
+        private authService : AuthService
     ) {
         
     }
@@ -32,7 +34,14 @@ export class BlogService {
         return this.http.get<Blog>(this.url + "blogs/" + id + ".json")
     }
 
-    createBlog(blog: Blog) : Observable<Blog> {
-        return this.http.post<Blog>(`${this.url}blogs.json`, blog)
+    createBlog(blog: Blog): Observable<Blog> {
+        
+        return this.authService.user.pipe(
+            take(1),
+            exhaustMap(user => {
+                return this.http.post<Blog>(`${this.url}blogs.json?auth=${user?.token}`, blog)
+            })
+        )
+        
     }
 }
