@@ -1,0 +1,22 @@
+<h3 class="mb-3 mt-3">{{isLogin ? "Giriş Yap" : "Hesap Oluştur"}}</h3>
+
+<div class="alert alert-danger" *ngIf="error">
+    {{ error }}
+</div>
+
+<form #form="ngForm" (ngSubmit)="handleAuth(form)">
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input ngModel required email type="email" name="email" id="email" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input ngModel required minlength="6"  type="password" name="password" id="password" class="form-control">
+    </div>
+    <div class="d-grid gap-2">
+        <button class="btn btn-primary" type="submit" [disabled]="form.invalid">{{isLogin ? "Giriş Yap" : "Hesap Oluştur"}}</button>
+        <button class="btn btn-outline-primary" type="button" (click)="toggleMode()">
+            {{isLogin ? "Henüz Hesabım Yok" : "Hesabım Var"}}
+        </button>
+    </div>
+</form> 
