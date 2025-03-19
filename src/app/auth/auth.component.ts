@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   styleUrl: './auth.component.css'
 })
 export class AuthComponent implements OnInit {
-  isLogin: boolean = true;
+  isLogin: boolean = false;
   error: string = "";
 
   constructor(

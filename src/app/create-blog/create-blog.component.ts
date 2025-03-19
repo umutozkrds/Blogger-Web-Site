@@ -4,6 +4,7 @@ import { Blog } from '../models/blog.model';
 import { BlogService } from '../services/blog.service';
 import { v4 as uuidv4 } from 'uuid';
 import { error } from 'console';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-blog',
@@ -19,7 +20,8 @@ export class CreateBlogComponent implements OnInit{
 
 
   constructor(
-    private blogService : BlogService
+    private blogService: BlogService,
+    private route : Router
   ) {
     
   }
@@ -43,6 +45,7 @@ export class CreateBlogComponent implements OnInit{
       next: (response) => {
         console.log('Blog başarıyla oluşturuldu:', response, blog);
         form.reset(); 
+        this.route.navigate(["/"])
       },
       error: (err) => {
         console.error('Blog oluşturulurken hata oluştu:', err.message);
