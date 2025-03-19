@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { User } from "./user.model";
 
 Injectable()
 export interface Blog {
@@ -7,5 +8,6 @@ export interface Blog {
     category: string;
     content: string;
     tags: string[];
+    user : any | null
 
 }

@@ -7,6 +7,7 @@
         <span *ngFor="let tag of blog.tags" class="tag">#{{ tag }}</span>
       </div>
       <a [routerLink]="['/blog', blog.id]" class="read-more">Devamını oku</a>
+      <p>{{blog.user["email"]}}</p>
     </div>
   </div>
   

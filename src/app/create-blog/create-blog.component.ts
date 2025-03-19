@@ -28,17 +28,20 @@ export class CreateBlogComponent implements OnInit{
   }
 
   createBlog(form: NgForm) {
+
+    const storedUser = localStorage.getItem("user")
     const blog: Blog = {
       id: uuidv4(), // 
       title: this.model.title,
       category: this.model.category,
       content: this.model.content,
-      tags: this.model.tags.split(',') 
+      tags: this.model.tags.split(','),
+      user : storedUser ? JSON.parse(storedUser) : null
     }; 
 
     this.blogService.createBlog(blog).subscribe({
       next: (response) => {
-        console.log('Blog başarıyla oluşturuldu:', response);
+        console.log('Blog başarıyla oluşturuldu:', response, blog);
         form.reset(); 
       },
       error: (err) => {
